@@ -7,7 +7,7 @@ const GifsContainer = (props) => {
   });
 
   return (
-    <ul>{gifItems}</ul>
+    <div className="gifs-container">{gifItems}</div>
   )
 }
 
