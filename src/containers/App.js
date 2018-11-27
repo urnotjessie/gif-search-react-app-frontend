@@ -2,11 +2,28 @@ import React, { Component } from 'react';
 import './App.css';
 import SearchBar from '../components/SearchBar';
 import GifsContainer from './GifsContainer';
+import GifModal from '../components/GifModal';
 
 class App extends Component {
 
   state = {
-    gifs: []
+    gifs: [],
+    selectedGif: null,
+    modalIsOpen: false
+  }
+
+  openModal = (gif) => {
+    this.setState({
+      selectedGif: gif,
+      modalIsOpen: true
+    })
+  }
+
+  closeModal = (gif) => {
+    this.setState({
+      selectedGif: null,
+      modalIsOpen: false
+    })
   }
 
   fetchGif = (query) => {
@@ -23,8 +40,11 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <SearchBar fetchGif={this.fetchGif}/>
-        <GifsContainer gifs={this.state.gifs}/>
+        <SearchBar fetchGif={this.fetchGif} />
+        <GifsContainer gifs={this.state.gifs} selectGif={selectedGif => this.openModal(selectedGif)} />
+        <GifModal modalIsOpen={this.state.modalIsOpen}
+                  selectedGif={this.state.selectedGif}
+                  onRequestClose={() => this.closeModal()} />
       </div>
     );
   }
