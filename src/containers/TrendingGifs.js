@@ -9,7 +9,7 @@ class SearchGifs extends Component {
 
 
   componentDidMount() {
-    fetch(`http://api.giphy.com/v1/gifs/trending?api_key=dc6zaTOxFJmzC&rating=g`)
+    fetch(`http://localhost:3001/api/trending`)
       .then(res => res.json())
       .then(json => {
         this.setState({

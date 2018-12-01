@@ -10,7 +10,7 @@ class SearchGifs extends Component {
   }
 
   fetchGif = (query) => {
-    fetch(`http://api.giphy.com/v1/gifs/search?q=${query}&api_key=dc6zaTOxFJmzC&rating=g`)
+    fetch(`http://localhost:3001/api/search?q=${query}`)
       .then(res => res.json())
       .then(json => {
         this.setState({
