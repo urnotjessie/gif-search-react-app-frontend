@@ -1,30 +1,29 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 import Gifs from '../components/Gifs';
+import { fetchGifs } from '../actions/fetchGifs';
 
 class SearchGifs extends Component {
 
-  state = {
-    trendingGifs: [],
-  }
-
-
   componentDidMount() {
-    fetch(`http://localhost:3001/api/trending`)
-      .then(res => res.json())
-      .then(json => {
-        this.setState({
-          trendingGifs: json.data.map(gif => gif)
-        })
-      })
+    this.props.fetchGifs()
   }
 
   render() {
     return (
       <div>
-        <Gifs gifs={this.state.trendingGifs} />
+        <Gifs gifs={this.props.trendingGifs} />
       </div>
     )
   }
 }
 
-export default SearchGifs;
+const mapDispatchToProps = (dispatch) => {
+  return { fetchGifs: () => dispatch(fetchGifs()) }
+}
+
+const mapStateToProps = (state) => {
+  return {trendingGifs: state.trendingGifs}
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(SearchGifs);
