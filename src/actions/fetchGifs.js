@@ -3,15 +3,25 @@ export function fetchGifs() {
     dispatch({ type: 'LOADING_GIFS' });
     return fetch('http://localhost:3001/api/trending')
       .then(response => response.json())
-      .then(gifs => dispatch({type: 'FETCH_GIFS', payload: gifs.data }))
+      .then(gifs => dispatch({ type: 'FETCH_GIFS', payload: gifs.data }))
   };
 }
 
 export function fetchSearchGifs(query) {
   return (dispatch) => {
     dispatch({ type: 'LOADING_SEARCH_GIFS' });
-    return fetch(`http://localhost:3001/api/search?q=${query}`)
-      .then(response =>response.json())
+
+    fetch(`http://localhost:3001/api/search?q=${query}`)
+      .then(response => response.json())
       .then(gifs => dispatch({ type: 'FETCH_SEARCH_GIFS', payload: gifs.data }))
   }
+}
+
+export function fetchTargetGif(id) {
+  return (dispatch) => {
+    dispatch({ type: 'LOADING_TARGET_GIF' });
+    fetch(`http://localhost:3001/api/trending/${id}`)
+      .then(response => response.json())
+      .then(gifs => dispatch({ type: 'FETCH_TARGET_GIF', payload: gifs.data }))
+  };
 }
