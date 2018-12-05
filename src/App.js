@@ -4,6 +4,7 @@ import './App.css';
 import NavBar from './components/NavBar';
 import TrendingGifs from './containers/TrendingGifs';
 import SearchGifs from './containers/SearchGifs';
+import ShowGif from './containers/ShowGif';
 
 class App extends Component {
 
@@ -14,6 +15,7 @@ class App extends Component {
           <NavBar />
           <Route exact path="/search" component={SearchGifs} />
           <Route exact path="/trending" component={TrendingGifs} />
+          <Route exact path="/trending/:id" component={ShowGif} />
         </div>
       </Router>
     );
