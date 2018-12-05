@@ -1,33 +1,28 @@
 import React, { Component } from 'react';
 import SearchBar from '../components/SearchBar';
 import Gifs from '../components/Gifs';
-
+import { connect } from 'react-redux';
+import { fetchSearchGifs } from '../actions/fetchGifs';
 
 class SearchGifs extends Component {
-
-  state = {
-    gifs: [],
-  }
-
-  fetchGif = (query) => {
-    fetch(`http://localhost:3001/api/search?q=${query}`)
-      .then(res => res.json())
-      .then(json => {
-        this.setState({
-          gifs: json.data.map(gif => gif)
-        })
-      })
-  }
 
   render() {
     return (
       <div>
-        <SearchBar fetchGif={this.fetchGif} />
-        <Gifs gifs={this.state.gifs} />
+        <SearchBar fetchGif={this.props.fetchSearchGifs} />
+        <Gifs gifs={this.props.gifs} />
       </div>
     )
 
   }
 }
 
-export default SearchGifs;
+const mapDispatchToProps = (dispatch) => {
+  return { fetchSearchGifs: term => dispatch(fetchSearchGifs(term)) }
+}
+
+const mapStateToProps = (state) => {
+  return { gifs: state.gifs }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(SearchGifs);

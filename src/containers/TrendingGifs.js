@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import Gifs from '../components/Gifs';
 import { fetchGifs } from '../actions/fetchGifs';
 
-class SearchGifs extends Component {
+class TrendingGifs extends Component {
 
   componentDidMount() {
     this.props.fetchGifs()
@@ -26,4 +26,4 @@ const mapStateToProps = (state) => {
   return {trendingGifs: state.trendingGifs}
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(SearchGifs);
+export default connect(mapStateToProps, mapDispatchToProps)(TrendingGifs);
