@@ -2,6 +2,15 @@
   text-align: center;
 }
 
+.home-form {
+  text-align: center;
+  display: block;
+  margin: 0 auto;
+  clear: both;
+  padding-top: 250px;
+  padding-bottom: 20px;
+}
+
 .searchbar {
   margin: 1em 0;
 }
