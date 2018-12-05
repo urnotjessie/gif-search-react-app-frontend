@@ -27,13 +27,5 @@ class GifItem extends React.Component {
      )
    }
 }
-// const GifItem = (props) => {
-//
-//   return (
-//     <div className="gif-item">
-//       <img src={props.gif.images.fixed_width.url} alt="gif" />
-//     </div>
-//   )
-// }
-//
+
 export default GifItem;

@@ -10,9 +10,12 @@ class ShowGif extends Component {
 
   render() {
     if (Object.keys(this.props.targetGif).length !== 0) {
+      console.log(this.props.targetGif)
       return (
         <div>
-          <img src={this.props.targetGif.images.fixed_width.url} alt="gif" />
+          <img src={this.props.targetGif.images.original.url} alt="gif" />
+          <p>"{this.props.targetGif.title}"</p>
+          <p><a href={this.props.targetGif.source}>Check the Source Here!</a></p>
         </div>
       )
     } else {
