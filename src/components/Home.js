@@ -1,12 +1,12 @@
 import React from 'react';
+import { MdSearch } from 'react-icons/md';
+import { MdTrendingUp } from 'react-icons/md';
 
 const Home = () => {
   return (
     <div className="home-form">
-      <form>
-        <label for="form-search"></label>
-        <input type="text" id="form-search" placeholder="Search Google or type URL" />
-      </form>
+        <MdSearch size={90}/>
+        <MdTrendingUp size={90} />
     </div>
   )
 }
