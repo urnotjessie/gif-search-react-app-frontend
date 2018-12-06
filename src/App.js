@@ -6,13 +6,16 @@ import Home from './components/Home';
 import TrendingGifs from './containers/TrendingGifs';
 import SearchGifs from './containers/SearchGifs';
 import ShowGif from './containers/ShowGif';
+import ParticlesBackground from './components/ParticlesBackground';
 
 class App extends Component {
-
   render() {
     return (
       <Router>
         <div className="App">
+          <div>
+            <ParticlesBackground />
+          </div>
           <NavBar />
           <Route exact path="/" component={Home}/>
           <Route exact path="/search" component={SearchGifs} />
