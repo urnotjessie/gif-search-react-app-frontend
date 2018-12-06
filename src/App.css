@@ -2,16 +2,16 @@
   text-align: center;
 }
 
-.home-form {
+.home {
   text-align: center;
   display: block;
   margin: 0 auto;
   clear: both;
-  padding-top: 250px;
+  padding-top: 200px;
   padding-bottom: 20px;
 }
 
-.searchbar {
+.under-navbar {
   margin: 1em 0;
 }
 

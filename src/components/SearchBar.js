@@ -20,7 +20,7 @@ class SearchBar extends Component {
 
   render() {
     return (
-      <div className="searchbar">
+      <div className="under-navbar">
         <form onSubmit={this.handleSubmit}>
           <input type="text" value={this.state.term} onChange={this.handleChange} placeholder="Enter text to search for gifs!" />
           <input id="submit-button" type="submit" value="Search" />

@@ -25,7 +25,7 @@ class Home extends React.Component {
 
   render() {
     return (
-      <div className="home-form">
+      <div className="home">
         {this.renderRedirect()}
         <Row>
           <Col sm={{size: 4, order: 1, offset: 2}}><Button id="search" color="secondary" size="lg" block onClick={this.setRedirect}>Search Gifs</Button></Col>

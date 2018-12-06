@@ -12,7 +12,7 @@ class ShowGif extends Component {
     if (Object.keys(this.props.targetGif).length !== 0) {
       console.log(this.props.targetGif)
       return (
-        <div>
+        <div className="under-navbar">
           <img src={this.props.targetGif.images.original.url} alt="gif" />
           <p>"{this.props.targetGif.title}"</p>
           <p><a href={this.props.targetGif.source}>Check the Source Here!</a></p>
