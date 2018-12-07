@@ -11,8 +11,12 @@ export function fetchSearchGifs(query) {
   return (dispatch) => {
     dispatch({ type: 'LOADING_SEARCH_GIFS' });
 
-    fetch(`http://localhost:3001/api/search?q=${query}`)
-      .then(response => response.json())
+    fetch(`http://localhost:3001/api/search`,{
+      method: 'POST',
+      headers:{"Content-Type": "application/json"},
+      body: JSON.stringify({ query: query })
+    })
+      .then(response =>response.json())
       .then(gifs => dispatch({ type: 'FETCH_SEARCH_GIFS', payload: gifs.data }))
   }
 }
