@@ -14,7 +14,7 @@ class SearchBar extends Component {
 
   handleSubmit = (event) => {
     event.preventDefault();
-    this.props.fetchGif(this.state.term);
+    this.props.fetchGif({query: this.state.term});
     this.setState({term: ''})
   }
 
