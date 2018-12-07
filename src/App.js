@@ -13,9 +13,7 @@ class App extends Component {
     return (
       <Router>
         <div className="App">
-          <div>
-            <ParticlesBackground />
-          </div>
+          <ParticlesBackground />
           <NavBar />
           <Route exact path="/" component={Home}/>
           <Route exact path="/search" component={SearchGifs} />
