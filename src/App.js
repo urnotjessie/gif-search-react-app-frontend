@@ -5,6 +5,7 @@ import NavBar from './components/NavBar';
 import Home from './components/Home';
 import TrendingGifs from './containers/TrendingGifs';
 import SearchGifs from './containers/SearchGifs';
+import FavoriteGifs from './containers/FavoriteGifs';
 import ShowGif from './containers/ShowGif';
 import ParticlesBackground from './components/ParticlesBackground';
 
@@ -19,6 +20,7 @@ class App extends Component {
           <Route exact path="/search" component={SearchGifs} />
           <Route exact path="/trending" component={TrendingGifs} />
           <Route exact path="/trending/:id" component={ShowGif} />
+          <Route exact path="/favorite" component={FavoriteGifs} />
         </div>
       </Router>
     );
