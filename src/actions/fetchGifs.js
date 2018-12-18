@@ -41,3 +41,12 @@ export function createFavoriteGif(gif) {
       .then(gif => dispatch({ type: 'CREATE_FAVORITE', gif }))
   }
 }
+
+export function fetchFavoriteGifs() {
+  return (dispatch) => {
+    dispatch({ type: 'LOADING_GIFS' });
+    return fetch('http://localhost:3001/api/favorite')
+      .then(response => response.json())
+      .then(gifs => dispatch({ type: 'FETCH_FAVORITE_GIFS', payload: gifs }))
+  };
+}
