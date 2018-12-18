@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { fetchTargetGif } from '../actions/fetchGifs';
+import { createFavoriteGif } from '../actions/fetchGifs';
 import FavoriteGifForm from '../components/FavoriteGifForm';
+
 
 class ShowGif extends Component {
 
@@ -17,7 +19,7 @@ class ShowGif extends Component {
           <img src={this.props.targetGif.images.original.url} alt="gif" />
           <p>"{this.props.targetGif.title}"</p>
           <p><a href={this.props.targetGif.source}>Check the Source Here!</a></p>
-          <FavoriteGifForm gif={this.props.targetGif}/>
+          <FavoriteGifForm gif={this.props.targetGif} createFavoriteGif={this.props.createFavoriteGif} />
         </div>
       )
     } else {
@@ -28,7 +30,10 @@ class ShowGif extends Component {
 }
 
 const mapDispatchToProps = (dispatch) => {
-  return { fetchTargetGif: id => dispatch(fetchTargetGif(id)) }
+  return {
+    fetchTargetGif: id => dispatch(fetchTargetGif(id)),
+    createFavoriteGif: gif => dispatch(createFavoriteGif(gif))
+  }
 }
 
 const mapStateToProps = (state) => {
