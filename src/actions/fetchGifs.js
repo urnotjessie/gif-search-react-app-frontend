@@ -29,3 +29,15 @@ export function fetchTargetGif(id) {
       .then(gifs => dispatch({ type: 'FETCH_TARGET_GIF', payload: gifs.data }))
   };
 }
+
+export function createFavoriteGif(gif) {
+  return (dispatch) => {
+    fetch(`http://localhost:3001/api/favorite`,{
+      method: 'POST',
+      headers:{"Content-Type": "application/json"},
+      body: JSON.stringify({ gif: gif })
+    })
+      .then(response =>response.json())
+      .then(gif => dispatch({ type: 'CREATE_FAVORITE', gif }))
+  }
+}
