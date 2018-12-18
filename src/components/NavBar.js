@@ -12,6 +12,9 @@ const NavBar = () => {
         <NavItem>
           <NavLink href="/trending">Trending</NavLink>
         </NavItem>
+        <NavItem>
+          <NavLink href="/favorite">Favorite</NavLink>
+        </NavItem>
       </Nav>
     </Navbar>
   )
