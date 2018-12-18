@@ -30,6 +30,10 @@ export default function rootReducer(state = initialState, action) {
     case 'CREATE_FAVORITE':
       return {...state, favoriteGifs: state.favoriteGifs.concat(action.gif)};
 
+    case 'FETCH_FAVORITE_GIFS':
+      return {...state, loading: false, favoriteGifs: action.payload}
+
+
     default:
       return state;
   }
