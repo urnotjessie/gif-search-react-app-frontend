@@ -2,6 +2,7 @@ const initialState = {
   gifs: [],
   trendingGifs: [],
   targetGif: {},
+  favoriteGifs: [],
   loading: false
 }
 
@@ -25,6 +26,9 @@ export default function rootReducer(state = initialState, action) {
 
     case 'FETCH_TARGET_GIF':
       return {...state, loading: false, targetGif: action.payload}
+
+    case 'CREATE_FAVORITE':
+      return {...state, favoriteGifs: state.favoriteGifs.concat(action.gif)};
 
     default:
       return state;
