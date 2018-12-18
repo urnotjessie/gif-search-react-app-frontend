@@ -10,6 +10,7 @@ class FavoriteGifForm extends Component {
   handleSubmit = (event) => {
     event.preventDefault();
     this.props.createFavoriteGif(this.state);
+    alert('Saved to Favorite!');
   }
 
   render() {
