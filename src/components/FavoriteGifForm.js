@@ -2,14 +2,14 @@ import React, { Component } from 'react';
 
 class FavoriteGifForm extends Component {
   state = {
-    source: '',
-    images: '',
-    title: ''
+    source: this.props.gif.source,
+    images: this.props.gif.images.fixed_width.url,
+    title: this.props.gif.title
   }
 
   handleSubmit = (event) => {
     event.preventDefault();
-    console.log(this.props.gif);
+    console.log(this.state);
   }
 
   render() {
